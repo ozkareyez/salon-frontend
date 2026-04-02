@@ -1,0 +1,158 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ================== GLOBAL ================== */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Estilos base - sin afectar al admin */
+body {
+  font-family: "Inter", "Plus Jakarta Sans", "Montserrat", sans-serif;
+  min-height: 100vh;
+}
+
+/* Estilos para la página principal (fuera del admin) */
+body:not(.admin-body) {
+  background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 40%, #eef2ff 70%, #e0e7ff 100%);
+  color: #334155;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Estilos para el admin */
+body.admin-body {
+  background: #f8fafc;
+  color: #0f172a;
+}
+
+/* ================== SCROLL GLOBAL ================== */
+/* Scroll para página principal (Indigo/Slate) */
+body:not(.admin-body)::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+body:not(.admin-body)::-webkit-scrollbar-track {
+  background: #f1f5f9;
+  border-radius: 10px;
+}
+
+body:not(.admin-body)::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, #6366f1, #8b5cf6);
+  border-radius: 10px;
+  border: 2px solid #f1f5f9;
+}
+
+body:not(.admin-body)::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(180deg, #4f46e5, #7c3aed);
+}
+
+/* Scroll para admin - más neutro */
+body.admin-body::-webkit-scrollbar {
+  width: 8px;
+}
+body.admin-body::-webkit-scrollbar-track {
+  background: #f8fafc;
+}
+body.admin-body::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+  border-radius: 4px;
+}
+body.admin-body::-webkit-scrollbar-thumb:hover {
+  background: #94a3b8;
+}
+
+/* ================== TIPOGRAFÍA ================== */
+h1, h2, h3, h4, h5, h6 {
+  font-family: "Plus Jakarta Sans", "Inter", sans-serif;
+  letter-spacing: -0.02em;
+}
+
+body:not(.admin-body) h1, 
+body:not(.admin-body) .text-gradient {
+  background: linear-gradient(135deg, #4f46e5 0%, #7c3aed 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+/* Títulos en admin - color slate oscuro normal */
+body.admin-body h1 {
+  background: none !important;
+  -webkit-background-clip: unset !important;
+  background-clip: unset !important;
+  color: #0f172a !important;
+}
+
+/* ================== SELECCIÓN TEXTO ================== */
+::selection {
+  background: #e0e7ff;
+  color: #4f46e5;
+}
+
+::-moz-selection {
+  background: #e0e7ff;
+  color: #4f46e5;
+}
+
+/* ================== ENLACES Y BOTONES ================== */
+a {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+button {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  cursor: pointer;
+}
+
+/* ================== UTILIDADES SPA MODERNAS ================== */
+/* Gradientes - solo para página principal */
+body:not(.admin-body) .bg-gradient-spa {
+  background: linear-gradient(135deg, #6366f1, #8b5cf6);
+}
+
+body:not(.admin-body) .bg-gradient-spa-light {
+  background: linear-gradient(135deg, #f8fafc, #eff6ff);
+}
+
+body:not(.admin-body) .bg-glass {
+  background: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+body:not(.admin-body) .card-modern {
+  background: white;
+  border-radius: 2rem;
+  border: 1px solid #f1f5f9;
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.05), 0 4px 6px -2px rgba(0, 0, 0, 0.02);
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+body:not(.admin-body) .card-modern:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+}
+
+/* ================== OVERRIDES ADMIN DASHBOARD ================== */
+/* Forzar estilos neutros en el dashboard de administración para mitigar cambios en la Landing */
+.admin-body .MuiPaper-root {
+  background-color: white !important;
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06) !important;
+}
+
+.admin-body .MuiButton-root:not(.MuiButton-containedSecondary) {
+  background-color: #1976d2 !important;
+  color: white !important;
+}
+
+.admin-body .MuiButton-containedSecondary {
+  background-color: #d32f2f !important;
+}
+
+.admin-body .MuiTypography-root {
+  color: #0f172a !important;
+}

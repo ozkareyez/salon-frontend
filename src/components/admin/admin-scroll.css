@@ -1,0 +1,59 @@
+/* admin-scroll.css - Estilos para el scroll del admin */
+
+/* ================== SCROLL DEL BODY EN ADMIN ================== */
+body.admin-body::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+body.admin-body::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 10px;
+}
+
+body.admin-body::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+  border-radius: 10px;
+}
+
+body.admin-body::-webkit-scrollbar-thumb:hover {
+  background: #94a3b8;
+}
+
+/* Firefox - Body en admin */
+body.admin-body {
+  scrollbar-width: thin;
+  scrollbar-color: #cbd5e1 #f1f1f1;
+}
+
+/* ================== SCROLL DE ELEMENTOS DENTRO DEL ADMIN ================== */
+.admin-dashboard::-webkit-scrollbar,
+.admin-dashboard *::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+.admin-dashboard::-webkit-scrollbar-track,
+.admin-dashboard *::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 10px;
+}
+
+.admin-dashboard::-webkit-scrollbar-thumb,
+.admin-dashboard *::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+  border-radius: 10px;
+  transition: background 0.2s;
+}
+
+.admin-dashboard::-webkit-scrollbar-thumb:hover,
+.admin-dashboard *::-webkit-scrollbar-thumb:hover {
+  background: #94a3b8;
+}
+
+/* Firefox - Elementos dentro del admin */
+.admin-dashboard,
+.admin-dashboard * {
+  scrollbar-width: thin;
+  scrollbar-color: #cbd5e1 #f1f1f1;
+}
