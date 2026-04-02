@@ -1,5 +1,5 @@
 const API_URL = import.meta.env.VITE_API_URL || "http://localhost:3002";
-const API_BASE = `${API_URL}/api`;
+const API_BASE = `${API_URL.replace(/\/$/, "")}/api`;
 
 export const API_ENDPOINTS = {
   BASE: API_URL,
