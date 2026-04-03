@@ -122,10 +122,9 @@ const ModalConfirmacion = memo(
             initial={{ opacity: 0, scale: 0.95 }}
             animate={{ opacity: 1, scale: 1 }}
             exit={{ opacity: 0, scale: 0.95 }}
-            className="bg-white w-full max-w-2xl rounded-xl border shadow-xl max-h-[90vh] flex flex-col overflow-hidden"
-            className="border-slate-100"
+            className="bg-white w-full max-w-2xl rounded-xl border border-slate-100 shadow-xl max-h-[90vh] flex flex-col overflow-hidden"
           >
-            <div className="p-6 border-b" className="border-slate-100">
+            <div className="p-6 border-b border-slate-100">
               <div className="flex items-center justify-between mb-4">
                 <div className="flex items-center gap-3">
                   <div
@@ -137,10 +136,7 @@ const ModalConfirmacion = memo(
                     <CheckCircle className="text-white" size={20} />
                   </div>
                   <div>
-                    <h2
-                      className="text-xl font-bold"
-                      className="text-slate-900"
-                    >
+                    <h2 className="text-xl font-bold text-slate-900">
                       Confirmar Reserva
                     </h2>
                     <p className="text-sm text-slate-500">
@@ -167,52 +163,31 @@ const ModalConfirmacion = memo(
                     borderColor: "rgba(79, 70, 229, 0.2)",
                   }}
                 >
-                  <h3
-                    className="font-semibold text-sm mb-3"
-                    className="text-indigo-600"
-                  >
+                  <h3 className="font-semibold text-sm mb-3 text-indigo-600">
                     Detalles de la Reserva
                   </h3>
                   <div className="grid grid-cols-2 gap-4">
                     <div>
-                      <p
-                        className="text-xs font-medium mb-1"
-                        className="text-slate-400"
-                      >
+                      <p className="text-xs font-medium mb-1 text-slate-400">
                         Servicio
                       </p>
-                      <p
-                        className="font-semibold text-sm"
-                        className="text-slate-900"
-                      >
+                      <p className="font-semibold text-sm text-slate-900">
                         {datosReserva.servicio?.nombre}
                       </p>
                     </div>
                     <div>
-                      <p
-                        className="text-xs font-medium mb-1"
-                        className="text-slate-400"
-                      >
+                      <p className="text-xs font-medium mb-1 text-slate-400">
                         Profesional
                       </p>
-                      <p
-                        className="font-semibold text-sm"
-                        className="text-slate-900"
-                      >
+                      <p className="font-semibold text-sm text-slate-900">
                         {datosReserva.profesional?.nombre}
                       </p>
                     </div>
                     <div>
-                      <p
-                        className="text-xs font-medium mb-1"
-                        className="text-slate-400"
-                      >
+                      <p className="text-xs font-medium mb-1 text-slate-400">
                         Fecha
                       </p>
-                      <p
-                        className="font-semibold text-sm"
-                        className="text-slate-900"
-                      >
+                      <p className="font-semibold text-sm text-slate-900">
                         {new Date(datosReserva.fecha).toLocaleDateString(
                           "es-ES",
                           {
@@ -224,16 +199,10 @@ const ModalConfirmacion = memo(
                       </p>
                     </div>
                     <div>
-                      <p
-                        className="text-xs font-medium mb-1"
-                        className="text-slate-400"
-                      >
+                      <p className="text-xs font-medium mb-1 text-slate-400">
                         Hora
                       </p>
-                      <p
-                        className="font-semibold text-sm"
-                        className="text-slate-900"
-                      >
+                      <p className="font-semibold text-sm text-slate-900">
                         {datosReserva.hora}
                       </p>
                     </div>
@@ -243,17 +212,13 @@ const ModalConfirmacion = memo(
 
               <form onSubmit={handleSubmit} className="space-y-4">
                 <div>
-                  <label
-                    className="block text-sm font-medium mb-2"
-                    className="text-slate-900"
-                  >
+                  <label className="block text-sm font-medium mb-2 text-slate-900">
                     Nombre completo *
                   </label>
                   <div className="relative">
                     <User
-                      className="absolute left-3 top-1/2 transform -translate-y-1/2"
+                      className="absolute left-3 top-1/2 transform -translate-y-1/2 text-indigo-600"
                       size={18}
-                      className="text-indigo-600"
                     />
                     <input
                       ref={nombreRef}
@@ -261,11 +226,10 @@ const ModalConfirmacion = memo(
                       name="nombre"
                       value={datosCliente.nombre}
                       onChange={handleInputChange}
-                      className={`w-full pl-10 pr-4 py-2.5 border rounded-lg focus:ring-2 text-sm ${
-                        errors.nombre
-                          ? "border-slate-200 bg-red-50"
-                          : "border-gray-300"
-                      }`}
+                      className={`w-full pl-10 pr-4 py-2.5 border rounded-lg focus:ring-2 text-sm ${errors.nombre
+                        ? "border-slate-200 bg-red-50"
+                        : "border-gray-300"
+                        }`}
                       style={{ focusRingColor: "rgba(79, 70, 229, 0.4)" }}
                       placeholder="Nombre completo"
                       disabled={loading}
@@ -280,29 +244,24 @@ const ModalConfirmacion = memo(
 
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                   <div>
-                    <label
-                      className="block text-sm font-medium mb-2"
-                      className="text-slate-900"
-                    >
+                    <label className="block text-sm font-medium mb-2 text-slate-900">
                       Teléfono *
                     </label>
                     <div className="relative">
                       <Phone
-                        className="absolute left-3 top-1/2 transform -translate-y-1/2"
+                        className="absolute left-3 top-1/2 transform -translate-y-1/2 text-indigo-600"
                         size={18}
-                        className="text-indigo-600"
                       />
                       <input
                         type="tel"
                         name="telefono"
                         value={datosCliente.telefono}
                         onChange={handleInputChange}
-                        className={`w-full pl-10 pr-4 py-2.5 border rounded-lg text-sm ${
-                          errors.telefono
-                            ? "border-slate-200 bg-red-50"
-                            : "border-gray-300"
-                        }`}
-                        placeholder="300 123 4567"
+                        className={`w-full pl-10 pr-4 py-2.5 border rounded-lg text-sm ${errors.telefono
+                          ? "border-slate-200 bg-red-50"
+                          : "border-gray-300"
+                          }`}
+                        placeholder="300 234 5678"
                         disabled={loading}
                       />
                     </div>
@@ -314,28 +273,23 @@ const ModalConfirmacion = memo(
                   </div>
 
                   <div>
-                    <label
-                      className="block text-sm font-medium mb-2"
-                      className="text-slate-900"
-                    >
+                    <label className="block text-sm font-medium mb-2 text-slate-900">
                       Email *
                     </label>
                     <div className="relative">
                       <Mail
-                        className="absolute left-3 top-1/2 transform -translate-y-1/2"
+                        className="absolute left-3 top-1/2 transform -translate-y-1/2 text-indigo-600"
                         size={18}
-                        className="text-indigo-600"
                       />
                       <input
                         type="email"
                         name="email"
                         value={datosCliente.email}
                         onChange={handleInputChange}
-                        className={`w-full pl-10 pr-4 py-2.5 border rounded-lg text-sm ${
-                          errors.email
-                            ? "border-slate-200 bg-red-50"
-                            : "border-gray-300"
-                        }`}
+                        className={`w-full pl-10 pr-4 py-2.5 border rounded-lg text-sm ${errors.email
+                          ? "border-slate-200 bg-red-50"
+                          : "border-gray-300"
+                          }`}
                         placeholder="cliente@email.com"
                         disabled={loading}
                       />
@@ -349,10 +303,7 @@ const ModalConfirmacion = memo(
                 </div>
 
                 <div>
-                  <label
-                    className="block text-sm font-medium mb-2"
-                    className="text-slate-900"
-                  >
+                  <label className="block text-sm font-medium mb-2 text-slate-900">
                     Identificación (CC/NIT) *
                   </label>
                   <input
@@ -360,11 +311,10 @@ const ModalConfirmacion = memo(
                     name="identificacion"
                     value={datosCliente.identificacion}
                     onChange={handleInputChange}
-                    className={`w-full px-4 py-2.5 border rounded-lg text-sm ${
-                      errors.identificacion
-                        ? "border-slate-200 bg-red-50"
-                        : "border-gray-300"
-                    }`}
+                    className={`w-full px-4 py-2.5 border rounded-lg text-sm ${errors.identificacion
+                      ? "border-slate-200 bg-red-50"
+                      : "border-gray-300"
+                      }`}
                     placeholder="Número de identificación"
                     disabled={loading}
                   />
@@ -376,10 +326,7 @@ const ModalConfirmacion = memo(
                 </div>
 
                 <div>
-                  <label
-                    className="block text-sm font-medium mb-2"
-                    className="text-slate-900"
-                  >
+                  <label className="block text-sm font-medium mb-2 text-slate-900">
                     Notas adicionales (opcional)
                   </label>
                   <textarea
@@ -402,15 +349,11 @@ const ModalConfirmacion = memo(
                   }}
                 >
                   <Shield
-                    className="mt-0.5 flex-shrink-0"
+                    className="mt-0.5 flex-shrink-0 text-indigo-600"
                     size={14}
-                    className="text-indigo-600"
                   />
                   <div>
-                    <p
-                      className="font-medium mb-0.5"
-                      className="text-slate-900"
-                    >
+                    <p className="font-medium mb-0.5 text-slate-900">
                       Protección de datos
                     </p>
                     <p>
@@ -420,13 +363,7 @@ const ModalConfirmacion = memo(
                   </div>
                 </div>
 
-                <div
-                  className="flex items-center gap-3 p-4 rounded-lg border"
-                  style={{
-                    background: "#f0fdf4",
-                    borderColor: "#22c55e",
-                  }}
-                >
+                <div className="flex items-center gap-3 p-4 rounded-lg border border-green-200 bg-green-50/50">
                   <input
                     type="checkbox"
                     id="enviarWhatsapp"
@@ -455,43 +392,57 @@ const ModalConfirmacion = memo(
                 borderColor: "rgba(79, 70, 229, 0.1)",
                 background: "rgba(245, 169, 184, 0.03)",
               }}
+              PS C:\Users\Usuario\Desktop\PROYECTOS\salon\fronted\fronted> git add .
+PS C:\Users\Usuario\Desktop\PROYECTOS\salon\fronted\fronted> git commit -m "Actualización del frontend"
+            [main 3fbf008] Actualización del frontend
+            1 file changed, 10 insertions(+), 10 deletions(-)
+PS C:\Users\Usuario\Desktop\PROYECTOS\salon\fronted\fronted> git push origin main
+            Enumerating objects: 9, done.
+            Counting objects: 100% (9/9), done.
+            Delta compression using up to 4 threads
+            Compressing objects: 100% (5/5), done.
+            Writing objects: 100% (5/5), 540 bytes | 540.00 KiB/s, done.
+            Total 5 (delta 4), reused 0 (delta 0), pack-reused 0 (from 0)
+            remote: Resolving deltas: 100% (4/4), completed with 4 local objects.
+            To https://github.com/ozkareyez/salon-frontend.git
+   3168534..3fbf008  main -> main
+PS C:\Users\Usuario\Desktop\PROYECTOS\salon\fronted\fronted> 
             >
-              <div className="flex justify-between items-center">
-                <button
-                  type="button"
-                  onClick={onClose}
-                  disabled={loading}
-                  className="px-5 py-2 text-sm font-medium rounded-lg transition-colors hover:bg-slate-50 disabled:opacity-50"
-                  className="text-slate-500"
-                >
-                  Cancelar
-                </button>
-                <button
-                  type="button"
-                  onClick={handleSubmit}
-                  disabled={loading}
-                  className="px-6 py-2.5 rounded-lg font-medium text-sm flex items-center gap-2 text-white transition-all shadow-md"
-                  style={{
-                    background: "linear-gradient(135deg, #4f46e5, #7c3aed)",
-                    boxShadow: "0 4px 12px rgba(79, 70, 229, 0.2)",
-                  }}
-                >
-                  {loading ? (
-                    <>
-                      <Loader2 className="animate-spin" size={16} />{" "}
-                      Procesando...
-                    </>
-                  ) : (
-                    <>
-                      <CheckCircle size={16} /> Confirmar reserva
-                    </>
-                  )}
-                </button>
-              </div>
+            <div className="flex justify-between items-center">
+              <button
+                type="button"
+                onClick={onClose}
+                disabled={loading}
+                className="px-5 py-2 text-sm font-medium rounded-lg transition-colors hover:bg-slate-100 disabled:opacity-50 text-slate-500"
+              >
+                Cancelar
+              </button>
+              <button
+                type="button"
+                onClick={handleSubmit}
+                disabled={loading}
+                className="px-6 py-2.5 rounded-lg font-medium text-sm flex items-center gap-2 text-white transition-all shadow-md"
+                style={{
+                  background: "linear-gradient(135deg, #4f46e5, #7c3aed)",
+                  boxShadow: "0 4px 12px rgba(79, 70, 229, 0.2)",
+                }}
+              >
+                {loading ? (
+                  <>
+                    <Loader2 className="animate-spin" size={16} />{" "}
+                    Procesando...
+                  </>
+                ) : (
+                  <>
+                    <CheckCircle size={16} /> Confirmar reserva
+                  </>
+                )}
+              </button>
             </div>
-          </motion.div>
         </div>
-      </AnimatePresence>
+      </motion.div>
+        </div >
+      </AnimatePresence >
     );
   },
 );
@@ -1148,7 +1099,7 @@ const ReservaCita = () => {
           </p>
         </div>
       ) : (
-        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-3 lg:grid-cols-4 gap-3">
+        <div className="grid grid-cols-1 sm:grid-cols-3 md:grid-cols-3 lg:grid-cols-4 gap-3">
           {/* Opción "Cualquiera" */}
           <button
             onClick={() =>
@@ -1159,11 +1110,10 @@ const ReservaCita = () => {
                 imagen_url: null,
               })
             }
-            className={`text-left rounded-xl p-3 border transition-all ${
-              profesionalSeleccionado?.id === "cualquiera"
-                ? "shadow-sm"
-                : "bg-white"
-            }`}
+            className={`text-left rounded-xl p-3 border transition-all ${profesionalSeleccionado?.id === "cualquiera"
+              ? "shadow-sm"
+              : "bg-white"
+              }`}
             style={{
               borderColor:
                 profesionalSeleccionado?.id === "cualquiera"
@@ -1208,11 +1158,10 @@ const ReservaCita = () => {
             <button
               key={prof.id}
               onClick={() => handleSelectProfesional(prof)}
-              className={`text-left rounded-xl p-3 border transition-all ${
-                profesionalSeleccionado?.id === prof.id
-                  ? "shadow-sm"
-                  : "bg-white"
-              }`}
+              className={`text-left rounded-xl p-3 border transition-all ${profesionalSeleccionado?.id === prof.id
+                ? "shadow-sm"
+                : "bg-white"
+                }`}
               style={{
                 borderColor:
                   profesionalSeleccionado?.id === prof.id
@@ -1276,11 +1225,10 @@ const ReservaCita = () => {
                     </div>
                   )}
                   <div
-                    className={`absolute -top-1 -left-1 w-2 h-2 rounded-full ${
-                      prof.status === "Disponible"
-                        ? "bg-green-500"
-                        : "bg-amber-500"
-                    }`}
+                    className={`absolute -top-1 -left-1 w-2 h-2 rounded-full ${prof.status === "Disponible"
+                      ? "bg-green-500"
+                      : "bg-amber-500"
+                      }`}
                   />
                 </div>
                 <h3 className="text-slate-900">{prof.nombre}</h3>
@@ -1290,9 +1238,8 @@ const ReservaCita = () => {
                     <Star
                       key={i}
                       size={12}
-                      className={`${
-                        i < Math.floor(prof.rating || 4.5) ? "fill-current" : ""
-                      }`}
+                      className={`${i < Math.floor(prof.rating || 4.5) ? "fill-current" : ""
+                        }`}
                     />
                   ))}
                   <span className="text-xs ml-1 text-slate-500">
@@ -1308,11 +1255,10 @@ const ReservaCita = () => {
                     </span>
                   </div>
                   <span
-                    className={`px-2 py-0.5 rounded-full text-xs ${
-                      prof.status === "Disponible"
-                        ? "bg-green-100 text-green-800"
-                        : "bg-amber-100 text-amber-800"
-                    }`}
+                    className={`px-2 py-0.5 rounded-full text-xs ${prof.status === "Disponible"
+                      ? "bg-green-100 text-green-800"
+                      : "bg-amber-100 text-amber-800"
+                      }`}
                   >
                     {prof.status || "Disponible"}
                   </span>
@@ -1477,15 +1423,14 @@ const ReservaCita = () => {
                         disponible && handleSelectFechaCalendario(fecha)
                       }
                       disabled={!disponible}
-                      className={`h-8 rounded text-sm transition-all ${
-                        esSeleccionada
-                          ? "text-white"
-                          : esHoy
-                            ? "font-semibold"
-                            : disponible
-                              ? "hover:bg-slate-50"
-                              : "cursor-not-allowed"
-                      }`}
+                      className={`h-8 rounded text-sm transition-all ${esSeleccionada
+                        ? "text-white"
+                        : esHoy
+                          ? "font-semibold"
+                          : disponible
+                            ? "hover:bg-slate-50"
+                            : "cursor-not-allowed"
+                        }`}
                       style={{
                         background: esSeleccionada
                           ? "linear-gradient(135deg, #4f46e5, #7c3aed)"
@@ -1548,12 +1493,7 @@ const ReservaCita = () => {
             </div>
             {profesionalSeleccionado ? (
               <div className="space-y-3">
-                <div
-                  className="flex items-center gap-3 p-3 rounded-lg"
-                  style={{
-                    background: "rgba(79, 70, 229, 0.05)",
-                  }}
-                >
+                <div className="flex items-center gap-3 p-3 rounded-lg bg-indigo-50/50 border border-indigo-100">
                   <div
                     className="w-10 h-10 rounded-full flex items-center justify-center"
                     style={{
@@ -1655,13 +1595,7 @@ const ReservaCita = () => {
       )}
 
       {esDiaFestivo ? (
-        <div
-          className="p-6 rounded-lg text-center"
-          style={{
-            background: "rgba(79, 70, 229, 0.05)",
-            border: "1px solid rgba(79, 70, 229, 0.2)",
-          }}
-        >
+        <div className="p-6 rounded-lg border border-indigo-200 bg-indigo-50/50 text-center">
           <AlertCircle size={32} className="text-indigo-600" />
           <h3 className="font-bold mb-1 text-slate-900">Fecha no disponible</h3>
           <p className="text-sm text-slate-500">
@@ -1752,13 +1686,12 @@ const ReservaCita = () => {
                   key={horaItem}
                   onClick={() => handleSelectHora(horaItem)}
                   disabled={!disponible}
-                  className={`p-3 rounded-lg border transition-all text-sm ${
-                    seleccionada
-                      ? "shadow-sm"
-                      : !disponible
-                        ? "cursor-not-allowed"
-                        : "bg-white hover:shadow-sm"
-                  }`}
+                  className={`p-3 rounded-lg border transition-all text-sm ${seleccionada
+                    ? "shadow-sm"
+                    : !disponible
+                      ? "cursor-not-allowed"
+                      : "bg-white hover:shadow-sm"
+                    }`}
                   style={{
                     borderColor: seleccionada
                       ? "#4f46e5"
@@ -1908,9 +1841,8 @@ const ReservaCita = () => {
             {[1, 2, 3].map((num) => (
               <div key={num} className="flex flex-col items-center">
                 <div
-                  className={`w-10 h-10 rounded-full flex items-center justify-center border-2 transition-all ${
-                    paso >= num ? "text-white" : "bg-white"
-                  }`}
+                  className={`w-10 h-10 rounded-full flex items-center justify-center border-2 transition-all ${paso >= num ? "text-white" : "bg-white"
+                    }`}
                   style={{
                     background:
                       paso >= num
@@ -1934,9 +1866,8 @@ const ReservaCita = () => {
                   )}
                 </div>
                 <span
-                  className={`mt-2 text-xs font-medium ${
-                    paso >= num ? "text-[#1e293b]" : "text-[#94a3b8]"
-                  }`}
+                  className={`mt-2 text-xs font-medium ${paso >= num ? "text-[#1e293b]" : "text-[#94a3b8]"
+                    }`}
                 >
                   {num === 1 && "Profesional"}
                   {num === 2 && "Fecha"}
@@ -1967,9 +1898,8 @@ const ReservaCita = () => {
           <button
             onClick={retrocederPaso}
             disabled={paso === 1}
-            className={`flex items-center gap-2 px-5 py-2.5 rounded-lg font-medium text-sm transition-all ${
-              paso > 1 ? "hover:bg-slate-50" : "cursor-not-allowed opacity-50"
-            }`}
+            className={`flex items-center gap-2 px-5 py-2.5 rounded-lg font-medium text-sm transition-all ${paso > 1 ? "hover:bg-slate-50" : "cursor-not-allowed opacity-50"
+              }`}
           >
             <ArrowLeft size={16} /> Anterior
           </button>
@@ -1983,13 +1913,7 @@ const ReservaCita = () => {
           <button
             onClick={avanzarPaso}
             disabled={!isStepValid()}
-            className="flex items-center gap-2 text-white px-6 py-2.5 rounded-lg font-medium text-sm transition-all shadow-sm"
-            style={{
-              background: "linear-gradient(135deg, #4f46e5, #7c3aed)",
-              boxShadow: "0 4px 12px rgba(79, 70, 229, 0.2)",
-              opacity: !isStepValid() ? 0.5 : 1,
-              cursor: !isStepValid() ? "not-allowed" : "pointer",
-            }}
+            className="flex items-center gap-2 text-white px-6 py-2.5 rounded-lg font-medium text-sm transition-all shadow-sm bg-indigo-600 hover:bg-indigo-700 disabled:opacity-50 disabled:cursor-not-allowed"
           >
             {paso < 3 ? "Continuar" : "Confirmar reserva"}{" "}
             <ArrowRight size={16} />
