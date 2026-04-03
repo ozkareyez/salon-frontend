@@ -10,6 +10,7 @@ import ContactForm from "./componentes/ContactForm";
 import Foter from "./componentes/Foter";
 import CartButton from "./componentes/CartButton";
 import CartDrawer from "./componentes/CartDrawer";
+import WhatsAppButton from "./componentes/WhatsAppButton";
 
 const Login = lazy(() => import("./components/admin/Login"));
 const Dashboard = lazy(() => import("./components/admin/Dashboard"));
@@ -45,6 +46,7 @@ const PublicLayout = ({ children }) => (
     <Foter />
     <CartButton />
     <CartDrawer />
+    <WhatsAppButton />
   </>
 );
 
