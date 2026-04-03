@@ -1,5 +1,5 @@
 import React from "react";
-// src/componentes/ReservaCita.jsx - VERSIÓN CON COLORES ROSA/BLANCO SPA
+// src/componentes/ReservaCita.jsx - VERSIÓN MODERNA INDIGO/SLATE (v2)
 import { useState, useCallback, useEffect, useRef, memo } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { useNavigate, useLocation } from "react-router-dom";
@@ -188,14 +188,17 @@ const ModalConfirmacion = memo(
                         Fecha
                       </p>
                       <p className="font-semibold text-sm text-slate-900">
-                        {new Date(datosReserva.fecha).toLocaleDateString(
-                          "es-ES",
-                          {
+                        {(() => {
+                          const [año, mes, dia] = datosReserva.fecha
+                            .split("-")
+                            .map(Number);
+                          const fechaLocal = new Date(año, mes - 1, dia);
+                          return fechaLocal.toLocaleDateString("es-ES", {
                             weekday: "short",
                             day: "numeric",
                             month: "short",
-                          },
-                        )}
+                          });
+                        })()}
                       </p>
                     </div>
                     <div>
@@ -386,63 +389,38 @@ const ModalConfirmacion = memo(
               </form>
             </div>
 
-            <div
-              className="p-6 border-t"
-              style={{
-                borderColor: "rgba(79, 70, 229, 0.1)",
-                background: "rgba(245, 169, 184, 0.03)",
-              }}
-              PS C:\Users\Usuario\Desktop\PROYECTOS\salon\fronted\fronted> git add .
-PS C:\Users\Usuario\Desktop\PROYECTOS\salon\fronted\fronted> git commit -m "Actualización del frontend"
-            [main 3fbf008] Actualización del frontend
-            1 file changed, 10 insertions(+), 10 deletions(-)
-PS C:\Users\Usuario\Desktop\PROYECTOS\salon\fronted\fronted> git push origin main
-            Enumerating objects: 9, done.
-            Counting objects: 100% (9/9), done.
-            Delta compression using up to 4 threads
-            Compressing objects: 100% (5/5), done.
-            Writing objects: 100% (5/5), 540 bytes | 540.00 KiB/s, done.
-            Total 5 (delta 4), reused 0 (delta 0), pack-reused 0 (from 0)
-            remote: Resolving deltas: 100% (4/4), completed with 4 local objects.
-            To https://github.com/ozkareyez/salon-frontend.git
-   3168534..3fbf008  main -> main
-PS C:\Users\Usuario\Desktop\PROYECTOS\salon\fronted\fronted> 
-            >
-            <div className="flex justify-between items-center">
-              <button
-                type="button"
-                onClick={onClose}
-                disabled={loading}
-                className="px-5 py-2 text-sm font-medium rounded-lg transition-colors hover:bg-slate-100 disabled:opacity-50 text-slate-500"
-              >
-                Cancelar
-              </button>
-              <button
-                type="button"
-                onClick={handleSubmit}
-                disabled={loading}
-                className="px-6 py-2.5 rounded-lg font-medium text-sm flex items-center gap-2 text-white transition-all shadow-md"
-                style={{
-                  background: "linear-gradient(135deg, #4f46e5, #7c3aed)",
-                  boxShadow: "0 4px 12px rgba(79, 70, 229, 0.2)",
-                }}
-              >
-                {loading ? (
-                  <>
-                    <Loader2 className="animate-spin" size={16} />{" "}
-                    Procesando...
-                  </>
-                ) : (
-                  <>
-                    <CheckCircle size={16} /> Confirmar reserva
-                  </>
-                )}
-              </button>
+            <div className="p-4 border-t border-slate-100 bg-slate-50/50">
+              <div className="flex justify-between items-center">
+                <button
+                  type="button"
+                  onClick={onClose}
+                  disabled={loading}
+                  className="px-5 py-2 text-sm font-medium rounded-lg transition-colors hover:bg-slate-100 disabled:opacity-50 text-slate-500"
+                >
+                  Cancelar
+                </button>
+                <button
+                  type="button"
+                  onClick={handleSubmit}
+                  disabled={loading}
+                  className="px-6 py-2.5 rounded-lg font-medium text-sm flex items-center gap-2 text-white transition-all shadow-md bg-indigo-600 hover:bg-indigo-700"
+                >
+                  {loading ? (
+                    <>
+                      <Loader2 className="animate-spin" size={16} />{" "}
+                      Procesando...
+                    </>
+                  ) : (
+                    <>
+                      <CheckCircle size={16} /> Confirmar reserva
+                    </>
+                  )}
+                </button>
+              </div>
             </div>
+          </motion.div>
         </div>
-      </motion.div>
-        </div >
-      </AnimatePresence >
+      </AnimatePresence>
     );
   },
 );
@@ -1494,16 +1472,11 @@ const ReservaCita = () => {
             {profesionalSeleccionado ? (
               <div className="space-y-3">
                 <div className="flex items-center gap-3 p-3 rounded-lg bg-indigo-50/50 border border-indigo-100">
-                  <div
-                    className="w-10 h-10 rounded-full flex items-center justify-center"
-                    style={{
-                      background: "linear-gradient(135deg, #4f46e5, #7c3aed)",
-                    }}
-                  >
+                  <div className="w-10 h-10 rounded-full flex items-center justify-center bg-indigo-600">
                     <User className="text-white" size={18} />
                   </div>
                   <div>
-                    <p className="text-slate-900">
+                    <p className="text-slate-900 font-medium">
                       {profesionalSeleccionado.nombre}
                     </p>
                     <p className="text-xs text-indigo-600">
@@ -1652,25 +1625,17 @@ const ReservaCita = () => {
             </div>
           </div>
 
-          <div className="flex items-center gap-4 mb-3 text-xs">
+          <div className="flex flex-wrap items-center gap-4 mb-3 text-xs">
             <div className="flex items-center gap-1">
-              <div
-                className="w-3 h-3 rounded"
-                style={{ background: "#4f46e5" }}
-              ></div>
+              <div className="w-3 h-3 rounded bg-white border border-slate-200"></div>
               <span className="text-slate-400">Disponible</span>
             </div>
             <div className="flex items-center gap-1">
-              <div className="w-3 h-3 rounded bg-gray-300"></div>
-              <span className="text-slate-400">Reservado / Ocupado</span>
+              <div className="w-3 h-3 rounded bg-slate-100 border border-slate-200"></div>
+              <span className="text-slate-400">Ocupado</span>
             </div>
             <div className="flex items-center gap-1">
-              <div
-                className="w-3 h-3 rounded"
-                style={{
-                  background: "linear-gradient(135deg, #4f46e5, #7c3aed)",
-                }}
-              ></div>
+              <div className="w-3 h-3 rounded bg-indigo-600"></div>
               <span className="text-slate-400">Seleccionado</span>
             </div>
           </div>
@@ -1784,23 +1749,18 @@ const ReservaCita = () => {
         background: "linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%)",
       }}
     >
-      <div
-        className="bg-white/95 backdrop-blur-sm border-b shadow-sm sticky top-0 z-10"
-        style={{
-          borderColor: "rgba(79, 70, 229, 0.1)",
-        }}
-      >
+      <div className="bg-white/95 backdrop-blur-sm border-b border-indigo-100 shadow-sm sticky top-0 z-10">
         <div className="max-w-6xl mx-auto px-6 py-4">
           <div className="flex items-center justify-between">
             <div className="flex items-center gap-4">
-              <button onClick={() => navigate(-1)} className="text-slate-500">
+              <button
+                onClick={() => navigate(-1)}
+                className="flex items-center gap-1 text-slate-500 hover:text-indigo-600 transition-colors"
+              >
                 <ArrowLeft size={18} />
-                <span>Volver</span>
+                <span className="hidden sm:inline">Volver</span>
               </button>
-              <div
-                className="h-6 w-px"
-                style={{ background: "rgba(79, 70, 229, 0.2)" }}
-              />
+              <div className="h-6 w-px bg-indigo-100" />
               <div>
                 <h1 className="text-lg font-bold text-slate-900">
                   Nueva Reserva
@@ -1810,11 +1770,11 @@ const ReservaCita = () => {
                 </p>
               </div>
             </div>
-            <div className="flex items-center gap-3">
-              <div className="text-right">
-                <p className="text-xs text-slate-400">Paso</p>
-                <p className="font-semibold text-slate-900">
-                  {paso} <span className="text-slate-400">/ 3</span>
+            <div className="flex items-center gap-3 text-right">
+              <div>
+                <p className="text-[10px] uppercase tracking-wider text-slate-400">Paso</p>
+                <p className="font-bold text-indigo-600">
+                  {paso} <span className="text-slate-300">/ 3</span>
                 </p>
               </div>
             </div>
@@ -1824,33 +1784,21 @@ const ReservaCita = () => {
 
       <div className="max-w-6xl mx-auto px-6 py-4">
         <div className="relative">
+          <div className="absolute top-1/2 left-0 right-0 h-1.5 -translate-y-1/2 rounded-full bg-indigo-50" />
           <div
-            className="absolute top-1/2 left-0 right-0 h-1.5 -translate-y-1/2 rounded-full"
-            style={{
-              background: "rgba(79, 70, 229, 0.1)",
-            }}
-          />
-          <div
-            className="absolute top-1/2 left-0 h-1.5 -translate-y-1/2 transition-all duration-500 rounded-full"
+            className="absolute top-1/2 left-0 h-1.5 -translate-y-1/2 transition-all duration-500 rounded-full bg-indigo-600"
             style={{
               width: `${(paso - 1) * 50}%`,
-              background: "linear-gradient(90deg, #4f46e5, #7c3aed)",
             }}
           />
           <div className="flex justify-between relative z-10">
             {[1, 2, 3].map((num) => (
               <div key={num} className="flex flex-col items-center">
                 <div
-                  className={`w-10 h-10 rounded-full flex items-center justify-center border-2 transition-all ${paso >= num ? "text-white" : "bg-white"
+                  className={`w-10 h-10 rounded-full flex items-center justify-center border-2 transition-all ${paso >= num
+                    ? "bg-indigo-600 border-indigo-600 text-white"
+                    : "bg-white border-slate-200 text-slate-400"
                     }`}
-                  style={{
-                    background:
-                      paso >= num
-                        ? "linear-gradient(135deg, #4f46e5, #7c3aed)"
-                        : "white",
-                    borderColor:
-                      paso >= num ? "#4f46e5" : "rgba(79, 70, 229, 0.2)",
-                  }}
                 >
                   {paso > num ? (
                     <Check size={16} className="text-white" />
@@ -1880,13 +1828,7 @@ const ReservaCita = () => {
       </div>
 
       <div className="max-w-6xl mx-auto px-6 py-6">
-        <div
-          className="bg-white rounded-xl border shadow-sm p-6"
-          style={{
-            borderColor: "rgba(79, 70, 229, 0.1)",
-            boxShadow: "0 8px 20px rgba(245, 169, 184, 0.08)",
-          }}
-        >
+        <div className="bg-white rounded-xl border border-indigo-100 shadow-sm p-6">
           <AnimatePresence mode="wait">
             {paso === 1 && <PasoSeleccionProfesional key="paso1" />}
             {paso === 2 && <PasoSeleccionFecha key="paso2" />}
