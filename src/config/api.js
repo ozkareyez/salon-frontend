@@ -38,5 +38,24 @@ export const API_ENDPOINTS = {
   PEDIDOS: `${API_BASE}/pedidos`,
 };
 
-export default API_BASE;
 export { API_URL };
+
+/**
+ * Helper para construir URLs de imágenes robustas
+ * @param {string} path - La ruta de la imagen (ej: /uploads/...)
+ * @returns {string} URL completa
+ */
+export const getImagenUrl = (path) => {
+  if (!path) return null;
+  if (path.startsWith("http")) return path;
+  
+  // Limpiar el path para asegurar que empiece con /
+  const cleanPath = path.startsWith("/") ? path : `/${path}`;
+  
+  // Asegurar que API_URL no termine en / para evitar dobles //
+  const cleanBase = API_URL.replace(/\/$/, "");
+  
+  return `${cleanBase}${cleanPath}`;
+};
+
+export default API_BASE;

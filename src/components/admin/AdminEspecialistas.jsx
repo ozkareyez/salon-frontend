@@ -17,7 +17,7 @@ import {
   Loader2,
   Eye,
 } from "lucide-react";
-import API_BASE, { API_URL } from "../../config/api";
+import API_BASE, { API_URL, getImagenUrl } from "../../config/api";
 
 const STATUS_OPTIONS = [
   { value: "Disponible", label: "Disponible", color: "bg-green-100 text-green-700" },
@@ -256,15 +256,7 @@ const AdminEspecialistas = () => {
           </div>
         ) : (
           especialistasFiltrados.map((esp) => {
-            let imgUrl = null;
-            if (esp.imagen_url) {
-              if (esp.imagen_url.startsWith("http")) {
-                imgUrl = esp.imagen_url;
-              } else {
-                const cleanImgPath = esp.imagen_url.startsWith("/") ? esp.imagen_url : `/${esp.imagen_url}`;
-                imgUrl = `${API_URL}${cleanImgPath}`;
-              }
-            }
+            const imgUrl = getImagenUrl(esp.imagen_url);
             
             return (
               <div key={esp.id} className="bg-white rounded-xl border border-gray-200 overflow-hidden hover:shadow-md transition-shadow">
@@ -517,12 +509,7 @@ const AdminEspecialistas = () => {
                   { (previewUrl || formData.imagen_url) && (
                     <div className="flex items-center gap-2">
                       <img
-                        src={
-                          previewUrl || 
-                          (formData.imagen_url?.startsWith("http") 
-                            ? formData.imagen_url 
-                            : `${API_URL}${formData.imagen_url?.startsWith("/") ? "" : "/"}${formData.imagen_url}`)
-                        }
+                        src={previewUrl || getImagenUrl(formData.imagen_url)}
                         alt="Preview"
                         className="w-12 h-12 rounded-lg object-cover border border-indigo-200 shadow-sm"
                       />

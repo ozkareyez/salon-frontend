@@ -24,7 +24,7 @@ import {
   Sparkles,
 } from "lucide-react";
 
-import API_BASE, { API_URL } from "../config/api";
+import API_BASE, { API_URL, getImagenUrl } from "../config/api";
 
 // ============================================
 // MODAL DE CONFIRMACIÓN
@@ -178,11 +178,7 @@ const ModalConfirmacion = memo(
                     <div className="flex items-center gap-2">
                       {datosReserva.profesional?.imagen_url ? (
                         <img
-                          src={
-                            datosReserva.profesional.imagen_url.startsWith("http")
-                              ? datosReserva.profesional.imagen_url
-                              : `${API_URL}${datosReserva.profesional.imagen_url.startsWith("/") ? "" : "/"}${datosReserva.profesional.imagen_url}`
-                          }
+                          src={getImagenUrl(datosReserva.profesional.imagen_url)}
                           alt={datosReserva.profesional.nombre}
                           className="w-6 h-6 rounded-full object-cover border border-indigo-200"
                         />
@@ -1173,11 +1169,7 @@ const ReservaCita = () => {
                       }}
                     >
                       <img
-                        src={
-                          prof.imagen_url.startsWith("http")
-                            ? prof.imagen_url
-                            : `${API_URL}${prof.imagen_url.startsWith("/") ? "" : "/"}${prof.imagen_url}`
-                        }
+                        src={getImagenUrl(prof.imagen_url)}
                         alt={prof.nombre}
                         className="w-full h-full rounded-full object-cover bg-white"
                         onError={(e) => {
@@ -1486,11 +1478,7 @@ const ReservaCita = () => {
                 <div className="flex items-center gap-3 p-3 rounded-lg bg-indigo-50/50 border border-indigo-100">
                   {profesionalSeleccionado.imagen_url ? (
                     <img
-                      src={
-                        profesionalSeleccionado.imagen_url.startsWith("http")
-                          ? profesionalSeleccionado.imagen_url
-                          : `${API_URL}${profesionalSeleccionado.imagen_url.startsWith("/") ? "" : "/"}${profesionalSeleccionado.imagen_url}`
-                      }
+                      src={getImagenUrl(profesionalSeleccionado.imagen_url)}
                       alt={profesionalSeleccionado.nombre}
                       className="w-10 h-10 rounded-full object-cover border border-indigo-200"
                     />
