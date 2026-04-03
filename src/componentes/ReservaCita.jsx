@@ -175,11 +175,23 @@ const ModalConfirmacion = memo(
                         {datosReserva.servicio?.nombre}
                       </p>
                     </div>
-                    <div>
-                      <p className="text-xs font-medium mb-1 text-slate-400">
-                        Profesional
-                      </p>
-                      <p className="font-semibold text-sm text-slate-900">
+                    <div className="flex items-center gap-2">
+                      {datosReserva.profesional?.imagen_url ? (
+                        <img
+                          src={
+                            datosReserva.profesional.imagen_url.startsWith("http")
+                              ? datosReserva.profesional.imagen_url
+                              : `${API_URL}${datosReserva.profesional.imagen_url.startsWith("/") ? "" : "/"}${datosReserva.profesional.imagen_url}`
+                          }
+                          alt={datosReserva.profesional.nombre}
+                          className="w-6 h-6 rounded-full object-cover border border-indigo-200"
+                        />
+                      ) : (
+                        <div className="w-6 h-6 rounded-full bg-indigo-100 flex items-center justify-center">
+                          <User size={12} className="text-indigo-600" />
+                        </div>
+                      )}
+                      <p className="font-semibold text-sm text-slate-900 line-clamp-1">
                         {datosReserva.profesional?.nombre}
                       </p>
                     </div>
@@ -1164,7 +1176,7 @@ const ReservaCita = () => {
                         src={
                           prof.imagen_url.startsWith("http")
                             ? prof.imagen_url
-                            : `${API_URL}${prof.imagen_url}`
+                            : `${API_URL}${prof.imagen_url.startsWith("/") ? "" : "/"}${prof.imagen_url}`
                         }
                         alt={prof.nombre}
                         className="w-full h-full rounded-full object-cover bg-white"
@@ -1472,14 +1484,26 @@ const ReservaCita = () => {
             {profesionalSeleccionado ? (
               <div className="space-y-3">
                 <div className="flex items-center gap-3 p-3 rounded-lg bg-indigo-50/50 border border-indigo-100">
-                  <div className="w-10 h-10 rounded-full flex items-center justify-center bg-indigo-600">
-                    <User className="text-white" size={18} />
-                  </div>
-                  <div>
-                    <p className="text-slate-900 font-medium">
+                  {profesionalSeleccionado.imagen_url ? (
+                    <img
+                      src={
+                        profesionalSeleccionado.imagen_url.startsWith("http")
+                          ? profesionalSeleccionado.imagen_url
+                          : `${API_URL}${profesionalSeleccionado.imagen_url.startsWith("/") ? "" : "/"}${profesionalSeleccionado.imagen_url}`
+                      }
+                      alt={profesionalSeleccionado.nombre}
+                      className="w-10 h-10 rounded-full object-cover border border-indigo-200"
+                    />
+                  ) : (
+                    <div className="w-10 h-10 rounded-full flex items-center justify-center bg-indigo-100 border border-indigo-200">
+                      <User className="text-indigo-600" size={18} />
+                    </div>
+                  )}
+                  <div className="min-w-0">
+                    <p className="text-slate-900 font-medium truncate">
                       {profesionalSeleccionado.nombre}
                     </p>
-                    <p className="text-xs text-indigo-600">
+                    <p className="text-xs text-indigo-600 truncate">
                       {profesionalSeleccionado.especialidad}
                     </p>
                   </div>

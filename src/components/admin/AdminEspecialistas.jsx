@@ -261,7 +261,8 @@ const AdminEspecialistas = () => {
               if (esp.imagen_url.startsWith("http")) {
                 imgUrl = esp.imagen_url;
               } else {
-                imgUrl = `${API_URL}${esp.imagen_url}`;
+                const cleanImgPath = esp.imagen_url.startsWith("/") ? esp.imagen_url : `/${esp.imagen_url}`;
+                imgUrl = `${API_URL}${cleanImgPath}`;
               }
             }
             
@@ -274,10 +275,10 @@ const AdminEspecialistas = () => {
                         <img
                           src={imgUrl}
                           alt={esp.nombre}
-                          className="w-16 h-16 rounded-full object-cover border-2 border-pink-200"
+                          className="w-16 h-16 rounded-full object-cover border-2 border-indigo-100 shadow-sm"
                         />
                       ) : (
-                        <div className="w-16 h-16 rounded-full bg-gradient-to-br from-pink-400 to-rose-500 flex items-center justify-center text-white font-bold text-xl">
+                        <div className="w-16 h-16 rounded-full bg-gradient-to-br from-indigo-500 to-blue-600 flex items-center justify-center text-white font-bold text-xl shadow-sm">
                           {esp.nombre ? esp.nombre.charAt(0) : "E"}
                         </div>
                       )}
@@ -513,12 +514,17 @@ const AdminEspecialistas = () => {
                       className="hidden"
                     />
                   </label>
-                  {(previewUrl || formData.imagen_url) && (
+                  { (previewUrl || formData.imagen_url) && (
                     <div className="flex items-center gap-2">
                       <img
-                        src={previewUrl || `${API_URL}${formData.imagen_url}`}
+                        src={
+                          previewUrl || 
+                          (formData.imagen_url?.startsWith("http") 
+                            ? formData.imagen_url 
+                            : `${API_URL}${formData.imagen_url?.startsWith("/") ? "" : "/"}${formData.imagen_url}`)
+                        }
                         alt="Preview"
-                        className="w-12 h-12 rounded-lg object-cover border"
+                        className="w-12 h-12 rounded-lg object-cover border border-indigo-200 shadow-sm"
                       />
                       <button
                         type="button"
