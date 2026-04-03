@@ -147,8 +147,8 @@ const ModalConfirmacion = memo(
             onClick={(e) => e.stopPropagation()}
           >
             {/* Header */}
-            <div className="p-6 border-b bg-gradient-to-r from-emerald-50 to-teal-50">
-              <div className="flex items-center justify-between mb-4">
+            <div className="p-4 md:p-6 border-b bg-white bg-gradient-to-r from-emerald-50/50 to-teal-50/50">
+              <div className="flex items-center justify-between mb-2 md:mb-4">
                 <div className="flex items-center gap-3">
                   <div className="p-2 rounded-lg bg-gradient-to-r from-emerald-500 to-teal-500">
                     <CheckCircle className="text-white" size={20} />
@@ -173,14 +173,14 @@ const ModalConfirmacion = memo(
             </div>
 
             {/* Contenido */}
-            <div className="flex-1 overflow-y-auto p-6">
+            <div className="flex-1 overflow-y-auto p-4 md:p-6 bg-white">
               {/* Resumen de la reserva */}
               {datosReserva && (
-                <div className="mb-6 p-4 bg-emerald-50 rounded-lg border border-emerald-200">
-                  <h3 className="font-semibold text-emerald-800 text-sm mb-3">
+                <div className="mb-4 md:mb-6 p-3 md:p-4 bg-emerald-50 rounded-xl border border-emerald-100">
+                  <h3 className="font-bold text-emerald-800 text-xs md:text-sm mb-2 md:mb-3 uppercase tracking-wider">
                     Resumen de tu reserva
                   </h3>
-                  <div className="grid grid-cols-2 gap-3">
+                  <div className="grid grid-cols-2 gap-2 md:gap-3">
                     <div>
                       <p className="text-emerald-600 text-xs">Servicio</p>
                       <p className="font-semibold text-gray-900">
@@ -206,10 +206,10 @@ const ModalConfirmacion = memo(
               )}
 
               {/* 🔥 FORMULARIO CORREGIDO - CON ESTILOS FORZADOS 🔥 */}
-              <form onSubmit={handleSubmit} className="space-y-4">
+              <form onSubmit={handleSubmit} className="space-y-3 md:space-y-4">
                 {/* Nombre */}
                 <div>
-                  <label className="block text-sm font-bold text-gray-900 mb-2">
+                  <label className="block text-xs md:text-sm font-bold text-gray-900 mb-1 md:mb-2">
                     Nombre completo *
                   </label>
                   <div className="relative">
@@ -225,7 +225,7 @@ const ModalConfirmacion = memo(
                       onChange={handleInputChange}
                       onKeyDown={handleKeyDown}
                       style={{ color: "#111827", backgroundColor: "#ffffff" }}
-                      className={`w-full pl-10 pr-4 py-3 border rounded-lg focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500 outline-none
+                      className={`w-full pl-10 pr-4 py-2 md:py-3 border rounded-xl focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500 outline-none transition-all
                         ${errors.nombre ? "border-red-300 bg-red-50" : "border-gray-400 bg-white"}`}
                       placeholder="Tu nombre completo"
                       required
@@ -238,9 +238,9 @@ const ModalConfirmacion = memo(
                 </div>
 
                 {/* Teléfono y Email */}
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-3 md:gap-4">
                   <div>
-                    <label className="block text-sm font-bold text-gray-900 mb-2">
+                    <label className="block text-xs md:text-sm font-bold text-gray-900 mb-1 md:mb-2">
                       Teléfono *
                     </label>
                     <div className="relative">
@@ -256,7 +256,7 @@ const ModalConfirmacion = memo(
                         onChange={handleInputChange}
                         onKeyDown={handleKeyDown}
                         style={{ color: "#111827", backgroundColor: "#ffffff" }}
-                        className={`w-full pl-10 pr-4 py-3 border rounded-lg focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500 outline-none
+                        className={`w-full pl-10 pr-4 py-2 md:py-3 border rounded-xl focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500 outline-none transition-all
                           ${errors.telefono ? "border-red-300 bg-red-50" : "border-gray-400 bg-white"}`}
                         placeholder="+57 300 123 4567"
                         required
@@ -271,7 +271,7 @@ const ModalConfirmacion = memo(
                   </div>
 
                   <div>
-                    <label className="block text-sm font-bold text-gray-900 mb-2">
+                    <label className="block text-xs md:text-sm font-bold text-gray-900 mb-1 md:mb-2">
                       Email *
                     </label>
                     <div className="relative">
@@ -287,7 +287,7 @@ const ModalConfirmacion = memo(
                         onChange={handleInputChange}
                         onKeyDown={handleKeyDown}
                         style={{ color: "#111827", backgroundColor: "#ffffff" }}
-                        className={`w-full pl-10 pr-4 py-3 border rounded-lg focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500 outline-none
+                        className={`w-full pl-10 pr-4 py-2 md:py-3 border rounded-xl focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500 outline-none transition-all
                           ${errors.email ? "border-red-300 bg-red-50" : "border-gray-400 bg-white"}`}
                         placeholder="tu@email.com"
                         required
@@ -304,7 +304,7 @@ const ModalConfirmacion = memo(
 
                 {/* Identificación */}
                 <div>
-                  <label className="block text-sm font-bold text-gray-900 mb-2">
+                  <label className="block text-xs md:text-sm font-bold text-gray-900 mb-1 md:mb-2">
                     Identificación (CC/NIT) *
                   </label>
                   <input
@@ -315,7 +315,7 @@ const ModalConfirmacion = memo(
                     onChange={handleInputChange}
                     onKeyDown={handleKeyDown}
                     style={{ color: "#111827", backgroundColor: "#ffffff" }}
-                    className={`w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500 outline-none
+                    className={`w-full px-4 py-2 md:py-3 border rounded-xl focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500 outline-none transition-all
                       ${errors.identificacion ? "border-red-300 bg-red-50" : "border-gray-400 bg-white"}`}
                     placeholder="Número de identificación"
                     required
@@ -330,7 +330,7 @@ const ModalConfirmacion = memo(
 
                 {/* Notas */}
                 <div>
-                  <label className="block text-sm font-bold text-gray-900 mb-2">
+                  <label className="block text-xs md:text-sm font-bold text-gray-900 mb-1 md:mb-2">
                     Notas adicionales (opcional)
                   </label>
                   <textarea
@@ -345,26 +345,25 @@ const ModalConfirmacion = memo(
                       }
                     }}
                     style={{ color: "#111827", backgroundColor: "#ffffff" }}
-                    className="w-full px-4 py-3 border border-gray-400 rounded-lg focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500 resize-none outline-none bg-white font-medium"
-                    rows="3"
+                    className="w-full px-4 py-2 md:py-3 border border-gray-400 rounded-xl focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500 resize-none outline-none bg-white font-medium transition-all"
+                    rows="2"
                     placeholder="Alergias, preferencias, comentarios..."
                     disabled={loading}
                   />
                 </div>
 
                 {/* Políticas */}
-                <div className="flex items-start gap-2 text-sm p-3 bg-gray-50 rounded-lg border border-gray-200">
+                <div className="flex items-start gap-2 text-[11px] md:text-sm p-2 md:p-3 bg-slate-50 rounded-xl border border-slate-200">
                   <Shield
                     className="text-emerald-500 mt-0.5 flex-shrink-0"
-                    size={16}
+                    size={14}
                   />
                   <div>
-                    <p className="font-medium text-gray-900 mb-1">
+                    <p className="font-bold text-gray-900 mb-0.5">
                       Políticas de privacidad
                     </p>
-                    <p className="text-gray-700">
-                      Tus datos están protegidos y solo se usarán para procesar
-                      tu reserva.
+                    <p className="text-gray-600 leading-tight">
+                      Tus datos están protegidos y solo se usarán para procesar tu reserva.
                     </p>
                   </div>
                 </div>
@@ -372,13 +371,13 @@ const ModalConfirmacion = memo(
             </div>
 
             {/* Footer */}
-            <div className="p-4 sm:p-6 border-t bg-gray-100">
-              <div className="flex flex-col sm:flex-row gap-3 sm:justify-between items-center">
+            <div className="p-3 md:p-6 border-t bg-gray-100/80 backdrop-blur-md">
+              <div className="flex flex-col sm:flex-row gap-2 md:gap-3 sm:justify-between items-center">
                 <button
                   type="button"
                   onClick={handleSubmit}
                   disabled={loading}
-                  className="w-full sm:w-auto order-1 sm:order-2 px-8 py-3.5 rounded-xl font-bold transition-all flex items-center justify-center gap-2 bg-gradient-to-r from-emerald-600 to-teal-500 text-white hover:from-emerald-700 hover:to-teal-600 shadow-lg disabled:opacity-50 disabled:cursor-not-allowed"
+                  className="w-full sm:w-auto order-1 sm:order-2 px-8 py-3 rounded-xl font-bold transition-all flex items-center justify-center gap-2 bg-gradient-to-r from-emerald-600 to-teal-500 text-white hover:from-emerald-700 hover:to-teal-600 shadow-lg active:scale-[0.98] disabled:opacity-50 disabled:cursor-not-allowed"
                 >
                   {loading ? (
                     <>
@@ -396,7 +395,7 @@ const ModalConfirmacion = memo(
                   type="button"
                   onClick={onClose}
                   disabled={loading}
-                  className="w-full sm:w-auto order-2 sm:order-1 px-5 py-2.5 text-gray-600 hover:text-gray-900 font-bold transition-colors disabled:opacity-50"
+                  className="w-full sm:w-auto order-2 sm:order-1 px-5 py-2 text-gray-600 hover:text-gray-900 font-bold transition-colors disabled:opacity-50"
                 >
                   Cancelar
                 </button>
