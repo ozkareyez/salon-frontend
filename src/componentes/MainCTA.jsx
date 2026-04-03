@@ -335,8 +335,8 @@ const MainCTA = ({ onNavigate }) => {
         )}
       </AnimatePresence>
 
-      <div className="relative max-w-7xl mx-auto px-4 md:px-8 pt-32 md:pt-40">
-        <div className="relative h-[80vh] md:h-[85vh] rounded-3xl shadow-2xl border-4 border-white overflow-hidden bg-slate-100">
+      <div className="relative max-w-7xl mx-auto px-4 md:px-8 pt-20 md:pt-40">
+        <div className="relative h-[85vh] md:h-[85vh] rounded-3xl shadow-2xl border-4 border-white overflow-hidden bg-slate-100">
           <AnimatePresence mode="wait">
             <motion.div
               key={current}
@@ -362,7 +362,7 @@ const MainCTA = ({ onNavigate }) => {
                     initial={{ x: -30, opacity: 0 }}
                     animate={{ x: 0, opacity: 1 }}
                     transition={{ delay: 0.2 }}
-                    className="inline-flex items-center gap-3 mb-6"
+                    className="inline-flex items-center gap-3 mb-4 md:mb-6"
                   >
                     <div className="p-3 backdrop-blur-md rounded-xl shadow-lg border border-white/20 bg-white/10 text-white">
                       {slides[current].icon}
@@ -376,7 +376,7 @@ const MainCTA = ({ onNavigate }) => {
                     initial={{ y: 30, opacity: 0 }}
                     animate={{ y: 0, opacity: 1 }}
                     transition={{ delay: 0.3 }}
-                    className="text-4xl md:text-5xl lg:text-7xl font-extrabold leading-tight tracking-tight"
+                    className="text-3xl md:text-5xl lg:text-7xl font-extrabold leading-tight tracking-tight"
                   >
                     <span className="text-white">
                       {slides[current].title.split(" ")[0]}
@@ -391,7 +391,7 @@ const MainCTA = ({ onNavigate }) => {
                     initial={{ y: 30, opacity: 0 }}
                     animate={{ y: 0, opacity: 1 }}
                     transition={{ delay: 0.4 }}
-                    className="mt-6 text-lg md:text-xl text-slate-300 leading-relaxed max-w-xl font-medium"
+                    className="mt-4 md:mt-6 text-base md:text-xl text-slate-300 leading-relaxed max-w-xl font-medium"
                   >
                     {slides[current].subtitle}
                   </motion.p>
@@ -400,7 +400,7 @@ const MainCTA = ({ onNavigate }) => {
                     initial={{ y: 30, opacity: 0 }}
                     animate={{ y: 0, opacity: 1 }}
                     transition={{ delay: 0.5 }}
-                    className="mt-8 flex flex-col sm:flex-row gap-4"
+                    className="mt-6 md:mt-8 flex flex-col sm:flex-row gap-4"
                   >
                     <button
                       onClick={() => scrollToSection("categorias")}
@@ -427,7 +427,7 @@ const MainCTA = ({ onNavigate }) => {
                     initial={{ y: 30, opacity: 0 }}
                     animate={{ y: 0, opacity: 1 }}
                     transition={{ delay: 0.6 }}
-                    className="mt-12 flex flex-wrap gap-6"
+                    className="mt-8 md:mt-12 flex flex-wrap gap-4 md:gap-6"
                   >
                     {[
                       { value: "4.9", label: "Rating", icon: <Star size={18} /> },
@@ -440,10 +440,10 @@ const MainCTA = ({ onNavigate }) => {
                           {stat.icon}
                         </div>
                         <div>
-                          <p className="text-2xl font-bold text-white tracking-wide">
+                          <p className="text-xl md:text-2xl font-bold text-white tracking-wide">
                             {stat.value}
                           </p>
-                          <p className="text-sm font-medium text-slate-300">
+                          <p className="text-[10px] md:text-sm font-medium text-slate-300">
                             {stat.label}
                           </p>
                         </div>
@@ -489,7 +489,7 @@ const MainCTA = ({ onNavigate }) => {
           </AnimatePresence>
         </div>
 
-        <div className="flex justify-center gap-3 mt-8">
+        <div className="flex justify-center gap-3 mt-4 md:mt-8">
           {slides.map((_, i) => (
             <button
               key={i}
