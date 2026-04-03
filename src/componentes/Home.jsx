@@ -22,7 +22,6 @@ import MainCTA from "./MainCTA";
 import Categorias from "./Categorias";
 import Servicios from "./Servicios";
 import MainEntrega from "./MainEntrega";
-import Foter from "./Foter";
 
 const HEADER_OFFSET = 90; // altura del header sticky
 
@@ -456,9 +455,6 @@ const Home = () => {
       <section id="entrega" className="scroll-mt-24">
         <MainEntrega />
       </section>
-
-      {/* FOOTER */}
-      <Foter className="mt-20" />
     </div>
   );
 };
