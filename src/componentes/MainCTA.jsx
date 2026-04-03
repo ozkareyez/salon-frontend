@@ -335,8 +335,8 @@ const MainCTA = ({ onNavigate }) => {
         )}
       </AnimatePresence>
 
-      <div className="relative max-w-7xl mx-auto px-4 md:px-8 pt-20 md:pt-40">
-        <div className="relative h-[85vh] md:h-[85vh] rounded-3xl shadow-2xl border-4 border-white overflow-hidden bg-slate-100">
+      <div className="relative max-w-7xl mx-auto px-4 md:px-8 pt-[76px] md:pt-40">
+        <div className="relative h-[75vh] md:h-[85vh] rounded-3xl shadow-2xl border-4 border-white overflow-hidden bg-slate-100">
           <AnimatePresence mode="wait">
             <motion.div
               key={current}
@@ -489,7 +489,7 @@ const MainCTA = ({ onNavigate }) => {
           </AnimatePresence>
         </div>
 
-        <div className="flex justify-center gap-3 mt-4 md:mt-8">
+        <div className="flex justify-center gap-3 mt-2 md:mt-8">
           {slides.map((_, i) => (
             <button
               key={i}
