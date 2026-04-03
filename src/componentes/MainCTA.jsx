@@ -13,6 +13,9 @@ import {
   Menu,
   Crown,
   Flower2,
+  Home,
+  ShoppingBag,
+  Truck,
 } from "lucide-react";
 
 import logoSpa from "../assets/logo/logosalon.png";
@@ -291,7 +294,7 @@ const MainCTA = ({ onNavigate }) => {
               <div className="p-6 space-y-3 max-w-7xl mx-auto">
                 <p className="text-[10px] font-bold text-slate-400 uppercase tracking-widest mb-2 px-2">MENÚ PRINCIPAL</p>
                 {[
-                  { id: "hero", label: "Inicio", icon: <HomeIcon size={18} /> },
+                  { id: "hero", label: "Inicio", icon: <Home size={18} /> },
                   { id: "categorias", label: "Servicios", icon: <ShoppingBag size={18} /> },
                   { id: "nosotros", label: "Nosotros", icon: <Heart size={18} /> },
                   { id: "entrega", label: "Contacto", icon: <Truck size={18} /> },
